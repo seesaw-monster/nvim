@@ -1,3 +1,4 @@
+# プラグイン管理
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -9,15 +10,19 @@ repo = 'Yggdroot/indentLine'
 [[plugins]]
 repo = 'tpope/vim-commentary'
 
+# ツリー関連
 # ディレクトリのツリー表示
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+# vi . でファイラー起動
 [[plugins]]
 repo = 'lambdalisue/fern-hijack.vim'
+# ツリーにアイコン表示
 [[plugins]]
 repo = 'lambdalisue/nerdfont.vim'
 [[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+# ツリーのアイコンを色付け
 [[plugins]]
 repo = 'lambdalisue/glyph-palette.vim'
 
@@ -26,7 +31,6 @@ repo = 'lambdalisue/glyph-palette.vim'
 repo = 'vim-airline/vim-airline'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-
 # ステータスラインのアイコン
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
@@ -34,6 +38,17 @@ repo = 'ryanoasis/vim-devicons'
 # 選択中のテキストをかっこなどでくくる
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+# マークダウンに関する設定
+# マークダウンのプレビュー
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'
+hook_add = '''
+let g:preview_markdown_auto_update = 1
+'''
+# マークダウンのテーブル作成
+[[plugins]]
+repo = 'mattn/vim-maketable'
 
 # 補完など
 [[plugins]]
