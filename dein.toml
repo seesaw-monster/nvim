@@ -55,7 +55,7 @@ repo = 'mattn/vim-maketable'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 hook_add = '''
-    let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-jedi']
+    let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-pyright', 'coc-html', 'coc-clangd']
 '''
 
 # ターミナル
