@@ -1,0 +1,59 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# インデントの可視化
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+# コメント化
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+# ディレクトリのツリー表示
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+[[plugins]]
+repo = 'lambdalisue/fern-hijack.vim'
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+
+# ステータスバーの表示
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+# ステータスラインのアイコン
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+# 選択中のテキストをかっこなどでくくる
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+# 補完など
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+hook_add = '''
+    let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-eslint', 'coc-prettier', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-jedi']
+'''
+
+# ターミナル
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+hook_add = '''
+    nnoremap <silent><C-t> :<C-u>Dwol -split=floating<CR>
+    tnoremap <ESC>  <C-\><C-n>
+'''
+
+# テーマ
+[[plugins]]
+repo = 'tomasiser/vim-code-dark'
+hook_add = '''
+    autocmd! VimEnter * nested colorscheme codedark
+'''
