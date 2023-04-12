@@ -51,31 +51,31 @@ hook_add = '''
 repo = 'mattn/vim-maketable'
 
 # 補完など
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-hook_add = '''
-    let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-pyright', 'coc-html', 'coc-clangd']
-    function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~ '\s'
-    endfunction
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# rev = 'release'
+# hook_add = '''
+#     let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-pyright', 'coc-html', 'coc-clangd']
+#     function! s:check_back_space() abort
+#       let col = col('.') - 1
+#       return !col || getline('.')[col - 1]  =~ '\s'
+#     endfunction
 
-    inoremap <silent><expr> <Tab>
-          \ pumvisible() ? "\<C-n>" :
-          \ <SID>check_back_space() ? "\<Tab>" :
-          \ coc#refresh()
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-'''
+#     inoremap <silent><expr> <Tab>
+#           \ pumvisible() ? "\<C-n>" :
+#           \ <SID>check_back_space() ? "\<Tab>" :
+#           \ coc#refresh()
+#     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+#     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+# '''
 
 # ターミナル
-[[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = '''
-    nnoremap <silent><C-t> :<C-u>Dwol -split=floating<CR>
-    tnoremap <ESC>  <C-\><C-n>
-'''
+# [[plugins]]
+# repo = 'Shougo/deol.nvim'
+# hook_add = '''
+#     nnoremap <silent><C-t> :<C-u>Dwol -split=floating<CR>
+#     tnoremap <ESC>  <C-\><C-n>
+# '''
 
 # テーマ
 [[plugins]]
@@ -83,3 +83,7 @@ repo = 'tomasiser/vim-code-dark'
 hook_add = '''
     autocmd! VimEnter * nested colorscheme codedark
 '''
+
+# Deno関連
+[[plugins]]
+repo = 'vim-denops/denops.vim'
