@@ -1,0 +1,5 @@
+# 補完機能
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+on_event = 'InsertEnter'
+depends = ['denops.vim']
