@@ -4,22 +4,27 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
-    call ddc#custom#patch_global('sources',['around'])
-    call ddc#custom#patch_global('sourcesOptions',{
-            '_': {
-                    'matchers': ['matcher_head'],
-                    'sorters': ['sorter_rank']
-                },
-            'around': {
-                    'mark': 'around'
-                },
-            'nvim-lsp': {
-                    'mark': 'lsp',
-                    'forceCompletionPattern': '\.\w*|:\w*|->\w*'
-                },
-        })
+    call ddc#custom#patch_global('ui','native')
+    call ddc#custom#patch_global('sources',['nvim-lsp','around'])
+    call ddc#custom#patch_global('sourceOptions',{
+        \ '_': {
+        \ 'matchers': ['matcher_head'],
+        \ 'sorters': ['sorter_rank'],
+        \ },
+        \ 'around': {
+        \ 'mark': 'around'
+        \ },
+        \ 'nvim-lsp': {
+        \ 'mark': 'lsp',
+        \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
+        \ },
+        \ })
     call ddc#enable()
 '''
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-native'
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-around'
@@ -39,6 +44,7 @@ on_source = 'ddc.vim'
 
 # Built-in LSP の補完をddc で利用する
 # 言語サーバーのインストール状況の確認は:Mason
+# python は pyright を利用
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
 on_event = 'BufEnter'
@@ -46,14 +52,14 @@ hook_source = '''
 lua << EOF
 local mason = require('mason')
 mason.setup({
-        ui = {
-                icons = {
-                        package_installed = "v",
-                        package_pending = ">",
-                        package_uninstalled = "x"
-                    }
-            }
-    })
+    ui = {
+        icons = {
+            package_installed = "v",
+            package_pending = ">>",
+            package_uninstalled = "x"
+        }
+    }
+})
 local nvim_lsp = require('lspconfig')
 local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup_handlers({ function(server_name)
@@ -65,11 +71,10 @@ mason_lspconfig.setup_handlers({ function(server_name)
         vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
         vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
     end
-     nvim_lsp[server_name].setup(opts)
-end })
+    nvim_lsp[server_name].setup(opts)
+end}) 
 EOF
 '''
-on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'williamboman/mason.nvim'
