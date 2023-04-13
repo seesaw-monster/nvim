@@ -358,7 +358,8 @@ nnoremap <script> <SID>gh h<SID>g
 nmap <SID>g <Nop>
 
 " :T でターミナルをいい感じに開く
-command! -nargs=* T bo term ++rows=15 <args>
+" command! -nargs=* T bo term ++rows=15 <args>
+command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 
 " 画面上にまれに表示される文字列への処置
 let &t_TI = ""
