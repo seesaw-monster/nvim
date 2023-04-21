@@ -270,13 +270,6 @@ inoremap <silent> っj <ESC>
 " inoremap <C-h> <Left>
 " inoremap <C-l> <Right>
 
-"マウススクロール・方向キーを無視
-"特に使うこともないためコメントアウト（マウススクロールは無視したいため，継続）
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-" nnoremap <Left> <Nop>
-" nnoremap <Right> <Nop>
-
 "補完メニューの高さ
 set pumheight=10
 
@@ -396,3 +389,9 @@ let g:clipboard = {
 \   },
 \   'cache_enabled': 0,
 \}
+
+" マウスに関する設定
+set mouse=
+"マウススクロール・方向キーを無視
+map <Up> <Nop>
+map <Down> <Nop>
