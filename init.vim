@@ -357,9 +357,15 @@ nnoremap <script> <SID>gl l<SID>g
 nnoremap <script> <SID>gh h<SID>g
 nmap <SID>g <Nop>
 
+" ターミナルモードに関する設定
 " :T でターミナルをいい感じに開く
-" command! -nargs=* T bo term ++rows=15 <args>
 command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
+" ターミナルのインサートモードを抜けるコマンドの設定
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-w><C-w> <C-\><C-n>
+tnoremap <C-w>k <C-\><C-n><C-w>k
+" 常にインサートモードでターミナルを開く
+autocmd TermOpen * startinsert
 
 " 画面上にまれに表示される文字列への処置
 let &t_TI = ""
@@ -375,3 +381,18 @@ nnoremap <silent> <C-k> :bprev<CR>
 " ビジュアルモード中に続けてインクリメント
 vnoremap <C-a> <C-a>gv
 vnoremap <C-x> <C-x>gv
+
+" WSLでクリップボード使いたい
+set clipboard=unnamed
+let g:clipboard = {
+\   'name': 'WslClipboard',
+\   'copy':{
+\       '+': 'win32yank.exe -i --crlf',
+\       '*': 'win32yank.exe -i --crlf',
+\   },
+\   'paste':{
+\       '+': 'win32yank.exe -o --lf',
+\       '*': 'win32yank.exe -o --lf',
+\   },
+\   'cache_enabled': 0,
+\}
