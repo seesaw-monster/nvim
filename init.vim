@@ -277,8 +277,8 @@ set pumheight=10
 hi MatchParen cterm=bold ctermbg=black ctermfg=blue
 
 "自動補完メニュー
-set wildmenu
-set wildmode=full
+" set wildmenu
+" set wildmode=full
 
 " コマンドラインの履歴の保存数
 set history=200
@@ -296,32 +296,28 @@ let &t_te .= "\e[0 q"
 " set tw=0
 autocmd FileType text setlocal textwidth=0
 
-" Fernの設定 ##############################################################
+" Fern の設定 ##############################################################
 nnoremap <silent><C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR> 
 inoremap <silent><C-n> <Esc>:Fern . -reveal=% -drawer -toggle -width=40<CR><C-w>l
 
-" vim-airlineの設定  ##########################################################   
+" vim-airline の設定  ##########################################################   
 " タブラインの表示
-let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#enabled=1
 " ステータスラインに表示する項目の変更
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['y', 'x', 'z']]
-let g:airline_section_c = '%t %M'
-let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3p%%' " %4l:%-4L
+" let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['y', 'x', 'z']]
+" let g:airline_section_c = '%t %M'
+" let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3p%%' " %4l:%-4L
 " 変更がなければdiffの行数を表示しない
-let g:airline#extensions#hunks#non_zero_only = 1
+" let g:airline#extensions#hunks#non_zero_only = 1
 
 " タブラインの表示を変更
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#show_close_button = 0
-
-" vim-code-darkの設定 ##########################################################
-colorscheme codedark
-let g:airline_theme = 'codedark'
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#show_splits = 0
+" let g:airline#extensions#tabline#show_tabs = 1
+" let g:airline#extensions#tabline#show_tab_nr = 0
+" let g:airline#extensions#tabline#show_tab_type = 1
+" let g:airline#extensions#tabline#show_close_button = 0
 
 " フォルダアイコンの表示
 let g:fern#renderer = 'nerdfont'
@@ -376,19 +372,21 @@ vnoremap <C-a> <C-a>gv
 vnoremap <C-x> <C-x>gv
 
 " WSLでクリップボード使いたい
-set clipboard=unnamed
-let g:clipboard = {
-\   'name': 'WslClipboard',
-\   'copy':{
-\       '+': 'win32yank.exe -i --crlf',
-\       '*': 'win32yank.exe -i --crlf',
-\   },
-\   'paste':{
-\       '+': 'win32yank.exe -o --lf',
-\       '*': 'win32yank.exe -o --lf',
-\   },
-\   'cache_enabled': 0,
-\}
+if has('wsl')
+    set clipboard=unnamed
+    let g:clipboard = {
+    \   'name': 'WslClipboard',
+    \   'copy':{
+    \       '+': 'win32yank.exe -i --crlf',
+    \       '*': 'win32yank.exe -i --crlf',
+    \   },
+    \   'paste':{
+    \       '+': 'win32yank.exe -o --lf',
+    \       '*': 'win32yank.exe -o --lf',
+    \   },
+    \   'cache_enabled': 0,
+    \}
+endif
 
 " マウスに関する設定
 set mouse=

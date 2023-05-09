@@ -3,7 +3,7 @@
 repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
-hook_source = '''
+hook_post_source = '''
     call ddc#custom#patch_global('ui','native')
     call ddc#custom#patch_global('sources',['nvim-lsp','around'])
     call ddc#custom#patch_global('sourceOptions',{
@@ -66,10 +66,6 @@ mason_lspconfig.setup_handlers({ function(server_name)
     local opts = {}
     opts.on_attach = function(_, bufnr)
         local bufopts = { silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-        vim.keymap.set('n', 'gtD', vim.lsp.buf.type_definition, bufopts)
-        vim.keymap.set('n', 'grf', vim.lsp.buf.references, bufopts)
-        vim.keymap.set('n', '<space>p', vim.lsp.buf.format, bufopts)
     end
     nvim_lsp[server_name].setup(opts)
 end}) 
@@ -83,3 +79,101 @@ on_source = 'nvim-lspconfig'
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
 on_source = 'nvim-lspconfig'
+hook_post_source = '''
+lua << EOF
+require('mason-lspconfig').setup({
+        ensure_installed = {
+                'pyright',
+                'lua_ls',
+            }
+    })
+require('lspconfig').pyright.setup({})
+require('lspconfig').lua_ls.setup({})
+EOF
+'''
+
+# lsp による補完
+[[plugins]]
+repo = 'hrsh7th/cmp-nvim-lsp'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-buffer'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-path'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+
+[[plugins]]
+repo = 'hrsh7th/cmp-cmdline'
+
+[[plugins]]
+repo = 'hrsh7th/nvim-cmp'
+hook_post_source = '''
+lua << EOF
+-- Set up nvim-cmp.
+local cmp = require("cmp")
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	mapping = cmp.mapping.preset.insert({
+		[""] = cmp.mapping.scroll_docs(-4),
+		[""] = cmp.mapping.scroll_docs(4),
+		[""] = cmp.mapping.complete(),
+		[""] = cmp.mapping.abort(),
+		[""] = cmp.mapping.confirm({ select = true }),
+	}),
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "vsnip" },
+	}, {
+		{ name = "buffer" },
+	}),
+}) 
+EOF
+'''
+
+[[plugins]]
+repo = 'onsails/lspkind.nvim'
+hook_post_source = '''
+lua << EOF
+-- Set up lspkind.
+local lspkind = require("lspkind")
+cmp.setup({
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol",
+			maxwidth = 50,
+			ellipsis_char = "...",
+			before = function(entry, vim_item)
+				return vim_item
+			end,
+		}),
+	},
+})
+EOF
+'''
+
+# リンターとフォーマッターの設定
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
+depends = ['plenary.nvim']
+hook_post_source = '''
+lua << EOF
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.isort,
+    }
+})
+EOF
+'''
