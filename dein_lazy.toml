@@ -1,4 +1,4 @@
-# 補完機能
+# 補完機ddc.vim'
 [[plugins]]
 repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
@@ -61,6 +61,7 @@ mason.setup({
     }
 })
 local nvim_lsp = require('lspconfig')
+
 local mason_lspconfig = require('mason-lspconfig')
 mason_lspconfig.setup_handlers({ function(server_name)
     local opts = {}
@@ -69,6 +70,9 @@ mason_lspconfig.setup_handlers({ function(server_name)
     end
     nvim_lsp[server_name].setup(opts)
 end}) 
+-- nvim_lsp.sumneko_lua.setup{
+--         cmd = { "/path/to/lua-language-server/bin/Linux/lua-language-server", "-E", "/path/to/lua-language-server/main.lua" }
+--     }
 EOF
 '''
 
@@ -171,9 +175,34 @@ lua << EOF
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.black,
-        null_ls.builtins.formatting.isort,
+        null_ls.builtins.formatting.black, -- python formatter
+        null_ls.builtins.formatting.isort, -- python import sort
+        null_ls.builtins.diagnostics.flake8, -- python linter
+        null_ls.builtins.formatting.stylua, -- lua formatter
+        null_ls.builtins.diagonostics.luacheck, -- lua linter
     }
 })
 EOF
 '''
+
+# 日本語入力用プラグイン
+# [[plugins]]
+# repo = 'vim-skk/denops-skkeleton.vim'
+# depends = ['denops.vim']
+# on_source = 'ddc.vim'
+# hook_post_source = '''
+# imap <C-j> <Plug>(skkeleton-toggle)
+# cmap <C-j> <Plug>(skkeleton-toggle)
+# call skkeleton#config({
+#   \   'eggLikeNewline': v:true,
+#   \   'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
+#   \ })
+# '''
+
+# [[plugins]]
+# repo = 'delphinus/skkeleton_indicator.nvim'
+# hook_post_source = '''
+# lua << EOF
+# require('skkeleton_indicator').setup{}
+# EOF
+# '''

@@ -364,8 +364,8 @@ let &t_TE = ""
 packadd! matchit
 
 " バッファ間の移動をより簡単に
-nnoremap <silent> <C-j> :bnext<CR>
-nnoremap <silent> <C-k> :bprev<CR>
+" nnoremap <silent> <C-j> :bnext<CR>
+" nnoremap <silent> <C-k> :bprev<CR>
 
 " ビジュアルモード中に続けてインクリメント
 vnoremap <C-a> <C-a>gv
@@ -393,3 +393,10 @@ set mouse=
 "マウススクロール・方向キーを無視
 map <Up> <Nop>
 map <Down> <Nop>
+
+" impap <C-j> <Plug>(skkeleton-toggle)
+" cmpap <C-j> <Plug>(skkeleton-toggle)
+" call skkeleton#config({ 
+" \   'eggLikeNewLine':v:true,
+" \   'globalJisyo': '~/.skk/SKK-JISYO.L',
+" \ })
