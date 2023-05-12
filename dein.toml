@@ -26,12 +26,6 @@ repo = 'lambdalisue/fern-renderer-nerdfont.vim'
 [[plugins]]
 repo = 'lambdalisue/glyph-palette.vim'
 
-# ステータスバーの表示
-# [[plugins]]
-# repo = 'vim-airline/vim-airline'
-# [[plugins]]
-# repo = 'vim-airline/vim-airline-themes'
-
 # ステータスラインのアイコン
 [[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
@@ -57,10 +51,6 @@ lua << EOF
 require('tabline').setup()
 EOF
 '''
-
-# ステータスラインのアイコン
-# [[plugins]]
-# repo = 'ryanoasis/vim-devicons'
 
 # テーマ
 [[plugins]]
