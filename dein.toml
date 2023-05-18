@@ -33,7 +33,7 @@ repo = 'kyazdani42/nvim-web-devicons'
 # ステータスライン
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-hook_add = '''
+hook_post_source = '''
 lua << EOF
 require('lualine').setup {
         options = {
@@ -46,7 +46,7 @@ EOF
 # タブライン
 [[plugins]]
 repo = 'kdheepak/tabline.nvim'
-hook_add = '''
+hook_post_source = '''
 lua << EOF
 require('tabline').setup()
 EOF
@@ -67,7 +67,7 @@ repo = 'tpope/vim-surround'
 # マークダウンのプレビュー
 [[plugins]]
 repo = 'skanehira/preview-markdown.vim'
-hook_add = '''
+hook_post_source = '''
     let g:preview_markdown_auto_update = 1
     let g:preview_markdown_vertical = 1
 '''
@@ -83,7 +83,7 @@ repo = 'mattn/vim-maketable'
 #     tnoremap <ESC>  <C-\><C-n>
 # '''
 
-# Deno関連
+# Deno 関連
 [[plugins]]
 repo = 'vim-denops/denops.vim'
 
