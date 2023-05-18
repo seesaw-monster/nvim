@@ -259,7 +259,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set backspace=indent,eol,start
 
 "インサートモードのEscをjjにキーバインド
-inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC>:w<Enter>
 inoremap <silent> っｊ <ESC>
 inoremap <silent> っj <ESC>
 
@@ -351,8 +351,9 @@ nmap <SID>g <Nop>
 command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
 " ターミナルのインサートモードを抜けるコマンドの設定
 tnoremap <Esc> <C-\><C-n>
-tnoremap <C-w><C-w> <C-\><C-n>
-tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w> <C-\><C-n>
+" tnoremap <C-w><C-w> <C-\><C-n>
+" tnoremap <C-w>k <C-\><C-n><C-w>k
 " 常にインサートモードでターミナルを開く
 autocmd TermOpen * startinsert
 
@@ -362,10 +363,6 @@ let &t_TE = ""
 
 " 対となる括弧への移動（％）を強化
 packadd! matchit
-
-" バッファ間の移動をより簡単に
-" nnoremap <silent> <C-j> :bnext<CR>
-" nnoremap <silent> <C-k> :bprev<CR>
 
 " ビジュアルモード中に続けてインクリメント
 vnoremap <C-a> <C-a>gv
@@ -393,10 +390,3 @@ set mouse=
 "マウススクロール・方向キーを無視
 map <Up> <Nop>
 map <Down> <Nop>
-
-" impap <C-j> <Plug>(skkeleton-toggle)
-" cmpap <C-j> <Plug>(skkeleton-toggle)
-" call skkeleton#config({ 
-" \   'eggLikeNewLine':v:true,
-" \   'globalJisyo': '~/.skk/SKK-JISYO.L',
-" \ })
