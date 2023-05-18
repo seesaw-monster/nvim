@@ -5,7 +5,7 @@ on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_post_source = '''
     call ddc#custom#patch_global('ui','native')
-    call ddc#custom#patch_global('sources',['nvim-lsp','around'])
+    call ddc#custom#patch_global('sources',['nvim-lsp','around', 'skkeleton'])
     call ddc#custom#patch_global('sourceOptions',{
         \ '_': {
         \ 'matchers': ['matcher_head'],
@@ -18,8 +18,20 @@ hook_post_source = '''
         \ 'mark': 'lsp',
         \ 'forceCompletionPattern': '\.\w*|:\w*|->\w*',
         \ },
+        \ 'skkeleton': {
+        \   'mark': 'skkeleton',
+        \   'matchers': ['skkeleton'],
+        \   'sorters':  []
+        \ },
         \ })
     call ddc#enable()
+
+    " <TAB>/<S-TAB> completion.
+    inoremap <silent><expr> <TAB>
+        \ pumvisible() ? '<C-n>' :
+        \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.')-2] =~# '\s') ?
+        \ '<TAB>' : ddc#map#manual_complete()
+    inoremap <expr><S-TAB> pumvisible() ? '<C-p>' : '<C-h>'
 '''
 
 [[plugins]]
@@ -110,9 +122,6 @@ repo = 'hrsh7th/cmp-path'
 repo = 'hrsh7th/cmp-cmdline'
 
 [[plugins]]
-repo = 'hrsh7th/cmp-cmdline'
-
-[[plugins]]
 repo = 'hrsh7th/nvim-cmp'
 hook_post_source = '''
 lua << EOF
@@ -186,23 +195,23 @@ EOF
 '''
 
 # 日本語入力用プラグイン
-# [[plugins]]
-# repo = 'vim-skk/denops-skkeleton.vim'
-# depends = ['denops.vim']
-# on_source = 'ddc.vim'
-# hook_post_source = '''
-# imap <C-j> <Plug>(skkeleton-toggle)
-# cmap <C-j> <Plug>(skkeleton-toggle)
-# call skkeleton#config({
-#   \   'eggLikeNewline': v:true,
-#   \   'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
-#   \ })
-# '''
+[[plugins]]
+repo = 'vim-skk/denops-skkeleton.vim'
+depends = ['denops.vim']
+on_source = 'ddc.vim'
+hook_post_source = '''
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+call skkeleton#config({
+    \ 'eggLikeNewline': v:true,
+    \ 'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
+    \ })
+'''
 
-# [[plugins]]
-# repo = 'delphinus/skkeleton_indicator.nvim'
-# hook_post_source = '''
-# lua << EOF
-# require('skkeleton_indicator').setup{}
-# EOF
-# '''
+[[plugins]]
+repo = 'delphinus/skkeleton_indicator.nvim'
+hook_post_source = '''
+lua << EOF
+require('skkeleton_indicator').setup{}
+EOF
+'''
