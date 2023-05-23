@@ -259,9 +259,10 @@ set whichwrap=b,s,h,l,<,>,[,]
 set backspace=indent,eol,start
 
 "インサートモードのEscをjjにキーバインド
-inoremap <silent> jj <ESC>:w<Enter>
+inoremap <silent> jj <ESC>
 inoremap <silent> っｊ <ESC>
 inoremap <silent> っj <ESC>
+inoremap <silent> ｊｊ <ESC>
 
 "入力モードでのカーソル移動
 "ほかの標準キーストロークを適用させたかったため，コメントアウト
