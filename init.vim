@@ -262,6 +262,7 @@ set backspace=indent,eol,start
 inoremap <silent> jj <ESC>
 inoremap <silent> っｊ <ESC>
 inoremap <silent> っj <ESC>
+inoremap <silent> ｊｊ <ESC>
 
 "入力モードでのカーソル移動
 "ほかの標準キーストロークを適用させたかったため，コメントアウト
@@ -270,13 +271,6 @@ inoremap <silent> っj <ESC>
 " inoremap <C-h> <Left>
 " inoremap <C-l> <Right>
 
-"マウススクロール・方向キーを無視
-"特に使うこともないためコメントアウト（マウススクロールは無視したいため，継続）
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-" nnoremap <Left> <Nop>
-" nnoremap <Right> <Nop>
-
 "補完メニューの高さ
 set pumheight=10
 
@@ -284,8 +278,8 @@ set pumheight=10
 hi MatchParen cterm=bold ctermbg=black ctermfg=blue
 
 "自動補完メニュー
-set wildmenu
-set wildmode=full
+" set wildmenu
+" set wildmode=full
 
 " コマンドラインの履歴の保存数
 set history=200
@@ -303,32 +297,28 @@ let &t_te .= "\e[0 q"
 " set tw=0
 autocmd FileType text setlocal textwidth=0
 
-" Fernの設定 ##############################################################
+" Fern の設定 ##############################################################
 nnoremap <silent><C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR> 
 inoremap <silent><C-n> <Esc>:Fern . -reveal=% -drawer -toggle -width=40<CR><C-w>l
 
-" vim-airlineの設定  ##########################################################   
+" vim-airline の設定  ##########################################################   
 " タブラインの表示
-let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#enabled=1
 " ステータスラインに表示する項目の変更
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['y', 'x', 'z']]
-let g:airline_section_c = '%t %M'
-let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3p%%' " %4l:%-4L
+" let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['y', 'x', 'z']]
+" let g:airline_section_c = '%t %M'
+" let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3p%%' " %4l:%-4L
 " 変更がなければdiffの行数を表示しない
-let g:airline#extensions#hunks#non_zero_only = 1
+" let g:airline#extensions#hunks#non_zero_only = 1
 
 " タブラインの表示を変更
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#show_close_button = 0
-
-" vim-code-darkの設定 ##########################################################
-colorscheme codedark
-let g:airline_theme = 'codedark'
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#show_buffers = 1
+" let g:airline#extensions#tabline#show_splits = 0
+" let g:airline#extensions#tabline#show_tabs = 1
+" let g:airline#extensions#tabline#show_tab_nr = 0
+" let g:airline#extensions#tabline#show_tab_type = 1
+" let g:airline#extensions#tabline#show_close_button = 0
 
 " フォルダアイコンの表示
 let g:fern#renderer = 'nerdfont'
@@ -357,8 +347,16 @@ nnoremap <script> <SID>gl l<SID>g
 nnoremap <script> <SID>gh h<SID>g
 nmap <SID>g <Nop>
 
+" ターミナルモードに関する設定
 " :T でターミナルをいい感じに開く
-command! -nargs=* T bo term ++rows=15 <args>
+command! -nargs=* T split | wincmd j | resize 15 | terminal <args>
+" ターミナルのインサートモードを抜けるコマンドの設定
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-w> <C-\><C-n>
+" tnoremap <C-w><C-w> <C-\><C-n>
+" tnoremap <C-w>k <C-\><C-n><C-w>k
+" 常にインサートモードでターミナルを開く
+autocmd TermOpen * startinsert
 
 " 画面上にまれに表示される文字列への処置
 let &t_TI = ""
@@ -367,10 +365,29 @@ let &t_TE = ""
 " 対となる括弧への移動（％）を強化
 packadd! matchit
 
-" バッファ間の移動をより簡単に
-nnoremap <silent> <C-j> :bnext<CR>
-nnoremap <silent> <C-k> :bprev<CR>
-
 " ビジュアルモード中に続けてインクリメント
 vnoremap <C-a> <C-a>gv
 vnoremap <C-x> <C-x>gv
+
+" WSLでクリップボード使いたい
+if has('wsl')
+    set clipboard=unnamed
+    let g:clipboard = {
+    \   'name': 'WslClipboard',
+    \   'copy':{
+    \       '+': 'win32yank.exe -i --crlf',
+    \       '*': 'win32yank.exe -i --crlf',
+    \   },
+    \   'paste':{
+    \       '+': 'win32yank.exe -o --lf',
+    \       '*': 'win32yank.exe -o --lf',
+    \   },
+    \   'cache_enabled': 0,
+    \}
+endif
+
+" マウスに関する設定
+set mouse=
+"マウススクロール・方向キーを無視
+map <Up> <Nop>
+map <Down> <Nop>
