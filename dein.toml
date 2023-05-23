@@ -26,14 +26,38 @@ repo = 'lambdalisue/fern-renderer-nerdfont.vim'
 [[plugins]]
 repo = 'lambdalisue/glyph-palette.vim'
 
-# ステータスバーの表示
-[[plugins]]
-repo = 'vim-airline/vim-airline'
-[[plugins]]
-repo = 'vim-airline/vim-airline-themes'
 # ステータスラインのアイコン
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
+repo = 'kyazdani42/nvim-web-devicons'
+
+# ステータスライン
+[[plugins]]
+repo = 'nvim-lualine/lualine.nvim'
+hook_post_source = '''
+lua << EOF
+require('lualine').setup {
+        options = {
+                icons_enabled = true,
+            }
+    }
+EOF
+'''
+
+# タブライン
+[[plugins]]
+repo = 'kdheepak/tabline.nvim'
+hook_post_source = '''
+lua << EOF
+require('tabline').setup()
+EOF
+'''
+
+# テーマ
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+hook_add = '''
+    autocmd! VimEnter * nested colorscheme tokyonight-moon
+'''
 
 # 選択中のテキストをかっこなどでくくる
 [[plugins]]
@@ -43,31 +67,13 @@ repo = 'tpope/vim-surround'
 # マークダウンのプレビュー
 [[plugins]]
 repo = 'skanehira/preview-markdown.vim'
-hook_add = '''
+hook_post_source = '''
     let g:preview_markdown_auto_update = 1
+    let g:preview_markdown_vertical = 1
 '''
 # マークダウンのテーブル作成
 [[plugins]]
 repo = 'mattn/vim-maketable'
-
-# 補完など
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# rev = 'release'
-# hook_add = '''
-#     let g:coc_global_extensions = ['coc-json', 'coc-css', 'coc-tsserver', 'coc-toml', 'coc-yaml', 'coc-pyright', 'coc-html', 'coc-clangd']
-#     function! s:check_back_space() abort
-#       let col = col('.') - 1
-#       return !col || getline('.')[col - 1]  =~ '\s'
-#     endfunction
-
-#     inoremap <silent><expr> <Tab>
-#           \ pumvisible() ? "\<C-n>" :
-#           \ <SID>check_back_space() ? "\<Tab>" :
-#           \ coc#refresh()
-#     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-#     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-# '''
 
 # ターミナル
 # [[plugins]]
@@ -77,13 +83,10 @@ repo = 'mattn/vim-maketable'
 #     tnoremap <ESC>  <C-\><C-n>
 # '''
 
-# テーマ
-[[plugins]]
-repo = 'tomasiser/vim-code-dark'
-hook_add = '''
-    autocmd! VimEnter * nested colorscheme codedark
-'''
-
-# Deno関連
+# Deno 関連
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+
+# lua 関連
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
