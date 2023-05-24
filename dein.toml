@@ -33,7 +33,7 @@ repo = 'kyazdani42/nvim-web-devicons'
 # ステータスライン
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
-hook_post_source = '''
+hook_add = '''
 lua << EOF
 require('lualine').setup {
         options = {
@@ -46,7 +46,7 @@ EOF
 # タブライン
 [[plugins]]
 repo = 'kdheepak/tabline.nvim'
-hook_post_source = '''
+hook_add = '''
 lua << EOF
 require('tabline').setup()
 EOF
@@ -74,14 +74,6 @@ hook_post_source = '''
 # マークダウンのテーブル作成
 [[plugins]]
 repo = 'mattn/vim-maketable'
-
-# ターミナル
-# [[plugins]]
-# repo = 'Shougo/deol.nvim'
-# hook_add = '''
-#     nnoremap <silent><C-t> :<C-u>Dwol -split=floating<CR>
-#     tnoremap <ESC>  <C-\><C-n>
-# '''
 
 # Deno 関連
 [[plugins]]
