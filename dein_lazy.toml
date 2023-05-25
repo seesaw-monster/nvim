@@ -197,16 +197,6 @@ EOF
 # 日本語入力用プラグイン
 [[plugins]]
 repo = 'vim-skk/denops-skkeleton.vim'
-depends = ['denops.vim']
-on_source = 'ddc.vim'
-hook_post_source = '''
-imap <C-j> <Plug>(skkeleton-toggle)
-cmap <C-j> <Plug>(skkeleton-toggle)
-call skkeleton#config({
-    \ 'eggLikeNewline': v:true,
-    \ 'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
-    \ })
-'''
 
 [[plugins]]
 repo = 'delphinus/skkeleton_indicator.nvim'
@@ -215,3 +205,23 @@ lua << EOF
 require('skkeleton_indicator').setup{}
 EOF
 '''
+
+# 選択中のテキストをかっこなどでくくる
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+
+# マークダウンに関する設定
+# マークダウンのプレビュー
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'
+hook_post_source = '''
+    let g:preview_markdown_auto_update = 1
+    let g:preview_markdown_vertical = 1
+'''
+# [[plugins]]
+# repo = 'kat0h/bufpreview.vim'
+# build = 'deno task prepare'
+
+# マークダウンのテーブル作成
+[[plugins]]
+repo = 'mattn/vim-maketable'
