@@ -56,6 +56,8 @@ set showmatch
 " set matchtime=1 なぜか対応する括弧の表示が遅れることがあったのでコメントアウト
 "コードの色分け
 syntax on
+" 相対的な行番号の表示
+set relativenumber
 
 "ファイル管理
 "バックアップファイルやスワップファイルを作成しない
@@ -391,3 +393,15 @@ set mouse=
 "マウススクロール・方向キーを無視
 map <Up> <Nop>
 map <Down> <Nop>
+
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+call skkeleton#config({
+\ 'eggLikeNewline':v:true,
+\ 'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
+\ })
+
+" vim-sandwichのための設定
+" s を利用したい場合は cl を使う
+nmap s <Nop>
+xmap s <Nop>
