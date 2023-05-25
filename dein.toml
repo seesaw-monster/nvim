@@ -59,22 +59,6 @@ hook_add = '''
     autocmd! VimEnter * nested colorscheme tokyonight-moon
 '''
 
-# 選択中のテキストをかっこなどでくくる
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-# マークダウンに関する設定
-# マークダウンのプレビュー
-[[plugins]]
-repo = 'skanehira/preview-markdown.vim'
-hook_post_source = '''
-    let g:preview_markdown_auto_update = 1
-    let g:preview_markdown_vertical = 1
-'''
-# マークダウンのテーブル作成
-[[plugins]]
-repo = 'mattn/vim-maketable'
-
 # Deno 関連
 [[plugins]]
 repo = 'vim-denops/denops.vim'
