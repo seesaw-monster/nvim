@@ -405,3 +405,6 @@ call skkeleton#config({
 " s を利用したい場合は cl を使う
 nmap s <Nop>
 xmap s <Nop>
+
+" <C-d> <C-u>による画面スク量の設定
+au BufEnter * set scroll=1
