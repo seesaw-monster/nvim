@@ -6,10 +6,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
-# コメント化
-[[plugins]]
-repo = 'tpope/vim-commentary'
-
 # ツリー関連
 # ディレクトリのツリー表示
 [[plugins]]
