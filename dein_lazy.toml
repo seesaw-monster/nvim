@@ -197,6 +197,8 @@ EOF
 # 日本語入力用プラグイン
 [[plugins]]
 repo = 'vim-skk/denops-skkeleton.vim'
+depends = ['denops.vim']
+on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'delphinus/skkeleton_indicator.nvim'
@@ -218,6 +220,7 @@ hook_post_source = '''
     let g:preview_markdown_auto_update = 1
     let g:preview_markdown_vertical = 1
 '''
+
 # [[plugins]]
 # repo = 'kat0h/bufpreview.vim'
 # build = 'deno task prepare'
@@ -225,3 +228,7 @@ hook_post_source = '''
 # マークダウンのテーブル作成
 [[plugins]]
 repo = 'mattn/vim-maketable'
+
+# コメント化
+[[plugins]]
+repo = 'tpope/vim-commentary'
