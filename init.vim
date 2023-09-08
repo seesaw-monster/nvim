@@ -260,12 +260,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 "Backspaceの影響範囲に制限を設けないようにする
 set backspace=indent,eol,start
 
-"インサートモードのEscをjjにキーバインド
-inoremap <silent> jj <ESC>
-inoremap <silent> っｊ <ESC>
-inoremap <silent> っj <ESC>
-inoremap <silent> ｊｊ <ESC>
-
 "入力モードでのカーソル移動
 "ほかの標準キーストロークを適用させたかったため，コメントアウト
 " inoremap <C-j> <Down>
