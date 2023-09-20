@@ -213,4 +213,3 @@ repo = 'mattn/vim-maketable'
 # コメント化
 [[plugins]]
 repo = 'tpope/vim-commentary'
-
