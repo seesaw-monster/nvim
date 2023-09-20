@@ -388,12 +388,12 @@ set mouse=
 map <Up> <Nop>
 map <Down> <Nop>
 
-imap <C-j> <Plug>(skkeleton-toggle)
-cmap <C-j> <Plug>(skkeleton-toggle)
-call skkeleton#config({
-\ 'eggLikeNewline':v:true,
-\ 'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
-\ })
+" imap <C-j> <Plug>(skkeleton-toggle)
+" cmap <C-j> <Plug>(skkeleton-toggle)
+" call skkeleton#config({
+" \ 'eggLikeNewline':v:true,
+" \ 'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
+" \ })
 
 " vim-sandwichのための設定
 " s を利用したい場合は cl を使う
