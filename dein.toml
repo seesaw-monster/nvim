@@ -6,10 +6,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
-# コメント化
-[[plugins]]
-repo = 'tpope/vim-commentary'
-
 # ツリー関連
 # ディレクトリのツリー表示
 [[plugins]]
@@ -58,30 +54,6 @@ repo = 'folke/tokyonight.nvim'
 hook_add = '''
     autocmd! VimEnter * nested colorscheme tokyonight-moon
 '''
-
-# 選択中のテキストをかっこなどでくくる
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-# マークダウンに関する設定
-# マークダウンのプレビュー
-[[plugins]]
-repo = 'skanehira/preview-markdown.vim'
-hook_post_source = '''
-    let g:preview_markdown_auto_update = 1
-    let g:preview_markdown_vertical = 1
-'''
-# マークダウンのテーブル作成
-[[plugins]]
-repo = 'mattn/vim-maketable'
-
-# ターミナル
-# [[plugins]]
-# repo = 'Shougo/deol.nvim'
-# hook_add = '''
-#     nnoremap <silent><C-t> :<C-u>Dwol -split=floating<CR>
-#     tnoremap <ESC>  <C-\><C-n>
-# '''
 
 # Deno 関連
 [[plugins]]

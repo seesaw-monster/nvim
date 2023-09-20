@@ -56,6 +56,8 @@ set showmatch
 " set matchtime=1 なぜか対応する括弧の表示が遅れることがあったのでコメントアウト
 "コードの色分け
 syntax on
+" 相対的な行番号の表示
+set relativenumber
 
 "ファイル管理
 "バックアップファイルやスワップファイルを作成しない
@@ -258,11 +260,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 "Backspaceの影響範囲に制限を設けないようにする
 set backspace=indent,eol,start
 
-"インサートモードのEscをjjにキーバインド
-inoremap <silent> jj <ESC>:w<Enter>
-inoremap <silent> っｊ <ESC>
-inoremap <silent> っj <ESC>
-
 "入力モードでのカーソル移動
 "ほかの標準キーストロークを適用させたかったため，コメントアウト
 " inoremap <C-j> <Down>
@@ -390,3 +387,18 @@ set mouse=
 "マウススクロール・方向キーを無視
 map <Up> <Nop>
 map <Down> <Nop>
+
+imap <C-j> <Plug>(skkeleton-toggle)
+cmap <C-j> <Plug>(skkeleton-toggle)
+call skkeleton#config({
+\ 'eggLikeNewline':v:true,
+\ 'globalJisyo': expand('~/.cache/skk/SKK-JISYO.L'),
+\ })
+
+" vim-sandwichのための設定
+" s を利用したい場合は cl を使う
+nmap s <Nop>
+xmap s <Nop>
+
+" <C-d> <C-u>による画面スク量の設定
+au BufEnter * set scroll=1
