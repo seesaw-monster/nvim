@@ -62,4 +62,3 @@ repo = 'vim-denops/denops.vim'
 # lua 関連
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
-
