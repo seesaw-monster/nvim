@@ -62,3 +62,8 @@ repo = 'vim-denops/denops.vim'
 # lua 関連
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
+
+# マークダウンのプレビュー
+[[plugins]]
+repo = 'kat0h/bufpreview.vim'
+build = 'deno task prepare'
