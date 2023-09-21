@@ -55,6 +55,12 @@ hook_add = '''
     autocmd! VimEnter * nested colorscheme tokyonight-moon
 '''
 
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+hook_add = '''
+    autocmd! VimEnter * nested colorscheme tokyonight-moon
+'''
+
 # Deno 関連
 [[plugins]]
 repo = 'vim-denops/denops.vim'
