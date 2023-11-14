@@ -196,7 +196,3 @@ repo = 'machakann/vim-sandwich'
 # マークダウンのテーブル作成
 [[plugins]]
 repo = 'mattn/vim-maketable'
-
-# コメント化
-[[plugins]]
-repo = 'tpope/vim-commentary'
