@@ -1,0 +1,12 @@
+{
+  "bufpreview.vim": { "branch": "master", "commit": "9b3df1e6f508a6df6951b6bc5353e8f822a0c186" },
+  "copilot.vim": { "branch": "release", "commit": "1dcaf72099b436b5832d6117d9cd7a4a098a8d77" },
+  "denops.vim": { "branch": "main", "commit": "6e14ad1974a9e4940bb5d67b298403c4757a2914" },
+  "indentLine": { "branch": "master", "commit": "b96a75985736da969ac38b72a7716a8c57bdde98" },
+  "lazy.nvim": { "branch": "main", "commit": "fafe1f7c640aed75e70a10e6649612cd96f39149" },
+  "lualine.nvim": { "branch": "master", "commit": "0a5a66803c7407767b799067986b4dc3036e1983" },
+  "nvim-web-devicons": { "branch": "master", "commit": "c0cfc1738361b5da1cd0a962dd6f774cc444f856" },
+  "tokyonight.nvim": { "branch": "main", "commit": "d68b8003a581c2e51a7bea465d1898fb7f7c8966" },
+  "vim-commentary": { "branch": "master", "commit": "c4b8f52cbb7142ec239494e5a2c4a512f92c4d07" },
+  "vim-maketable": { "branch": "master", "commit": "d72e73f333c64110524197ec637897bd1464830f" }
+}
