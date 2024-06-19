@@ -15,6 +15,25 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
   },
+  { -- tree
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+      '3rd/image.nvim'
+    }
+  },
+  { -- asynchronous processing
+    'nvim-lua/plenary.nvim'
+  },
+  { -- UI
+    'MunifTanjim/nui.nvim'
+  },
+  { -- image support
+    '3rd/image.nvim'
+  },
   { -- deno
     'vim-denops/denops.vim',
   },
