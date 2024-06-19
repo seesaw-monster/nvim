@@ -33,17 +33,17 @@ vim.o.backspace = 'indent,eol,start'
 -- moving between lines
 vim.o.whichwrap = 'b,s,h,l,<,>,[,]'
 -- cursor
-vim.o.t_ti = vim.o.t_ti .. "\27[1 q"
-vim.o.t_SI = vim.o.t_SI .. "\27[5 q"
-vim.o.t_EI = vim.o.t_EI .. "\27[1 q"
-vim.o.t_te = vim.o.t_te .. "\27[0 q"
+-- vim.o.t_ti = vim.o.t_ti .. "\27[1 q"
+-- vim.o.t_SI = vim.o.t_SI .. "\27[5 q"
+-- vim.o.t_EI = vim.o.t_EI .. "\27[1 q"
+-- vim.o.t_te = vim.o.t_te .. "\27[0 q"
 -- escape sequence
-vim.o.t_TI = ""
-vim.o.t_TE = ""
+-- vim.o.t_TI = ""
+-- vim.o.t_TE = ""
 
 -- search ################################################################################
-vim.o.inserch = true
-vim.o.wrapscan = true
+-- vim.o.inserch = true
+-- vim.o.wrapscan = true
 -- highlight search result
 vim.o.hlsearch = true
 -- disable highlighting

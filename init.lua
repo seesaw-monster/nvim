@@ -23,3 +23,16 @@ require("options")
 require("autocmd")
 require("keymaps")
 require("colorscheme")
+
+-- plugins ###############################################################################
+-- neo-tree
+-- require('neo-tree').setup({
+
+-- })
+
+-- disabling netrw
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
+
+-- keymap
+vim.api.nvim_set_keymap('n', '<C-n>', ':Neotree toggle<CR>', { noremap = true, silent = true })
