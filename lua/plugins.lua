@@ -1,4 +1,8 @@
 return {
+  { -- completion
+    'neoclide/coc.nvim',
+    branch = 'release'
+  },
   { -- colorscheme
     'folke/tokyonight.nvim',
     config = function()
