@@ -40,5 +40,10 @@ return {
   },
   { -- copilot
     'github/copilot.vim',
-  }
+  },
+  { -- auto pairs
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true
+  },
 }
