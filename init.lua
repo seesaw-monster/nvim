@@ -35,9 +35,4 @@ require("colorscheme")
 -- vim.g.loaded_netrwPlugin = 1
 
 -- keymap
-vim.api.nvim_set_keymap('n', '<ctrl>n', ':Neotree toggle<CR>', { noremap = true, silent = true })
-
--- auto
-vim.cmd([[
-  autocmd VimEnter * lua if vim.fn.isdirectory(vim.fn.argv()[1]) == 1 then require('neo-tree').show() end
-]])
+vim.api.nvim_set_keymap('n', '<C-n>', ':Neotree toggle<CR>', { noremap = true, silent = true })
