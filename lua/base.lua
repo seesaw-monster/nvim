@@ -33,16 +33,16 @@ vim.o.backspace = 'indent,eol,start'
 -- moving between lines
 vim.o.whichwrap = 'b,s,h,l,<,>,[,]'
 -- cursor
-vim.o.t_ti = vim.o.t_ti .. "\27[1 q"
-vim.o.t_SI = vim.o.t_SI .. "\27[5 q"
-vim.o.t_EI = vim.o.t_EI .. "\27[1 q"
-vim.o.t_te = vim.o.t_te .. "\27[0 q"
+-- vim.o.t_ti = vim.o.t_ti .. "\27[1 q"
+-- vim.o.t_SI = vim.o.t_SI .. "\27[5 q"
+-- vim.o.t_EI = vim.o.t_EI .. "\27[1 q"
+-- vim.o.t_te = vim.o.t_te .. "\27[0 q"
 -- escape sequence
-vim.o.t_TI = ""
-vim.o.t_TE = ""
+-- vim.o.t_TI = ""
+-- vim.o.t_TE = ""
 
 -- search ################################################################################
-vim.o.inserch = true
+-- vim.o.inserch = true
 vim.o.wrapscan = true
 -- highlight search result
 vim.o.hlsearch = true
@@ -65,3 +65,20 @@ vim.opt.clipboard:append('unnamedplus')
 -- undo
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath('cache') .. '/undo'
+
+-- terminal ##############################################################################
+-- keymap
+vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-w>', '<C-\\><C-n>', { noremap = true, silent = true })
+-- custom command
+vim.api.nvim_create_user_command('T', function(opts)
+  vim.cmd('split')
+  vim.cmd('wincmd j')
+  vim.cmd('resize 20')
+  vim.cmd('terminal ' .. opts.args)
+end, { nargs = '*' })
+-- auto insert mode
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  command = 'startinsert'
+})
