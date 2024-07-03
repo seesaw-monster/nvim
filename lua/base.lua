@@ -65,3 +65,20 @@ vim.opt.clipboard:append('unnamedplus')
 -- undo
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath('cache') .. '/undo'
+
+-- terminal ##############################################################################
+-- keymap
+vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-w>', '<C-\\><C-n>', { noremap = true, silent = true })
+-- custom command
+vim.api.nvim_create_user_command('T', function(opts)
+  vim.cmd('split')
+  vim.cmd('wincmd j')
+  vim.cmd('resize 20')
+  vim.cmd('terminal ' .. opts.args)
+end, { nargs = '*' })
+-- auto insert mode
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  command = 'startinsert'
+})
