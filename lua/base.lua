@@ -60,8 +60,6 @@ vim.o.hidden = true
 vim.opt.mouse = ''
 vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', { noremap = true, silent = true })
---clipboard
-vim.opt.clipboard:append('unnamedplus')
 -- undo
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath('cache') .. '/undo'
