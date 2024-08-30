@@ -13,15 +13,15 @@
 -- end
 
 -- clipboard on WSL
-if vim.fn.has('wsl') == 1 then
-  vim.opt.clipboard = 'unnamed'
+-- if vim.fn.has('wsl') == 1 then
+--   vim.opt.clipboard = 'unnamed'
 
-  vim.g.clipboard = {
-    name = 'WslClipboard',
-    copy = {
-      ['+'] = 'win32yank.exe -i --crlf',
-      ['*'] = 'win32yank.exe -i --crlf',
-    },
-    cache_enabled = 0,
-  }
-end
+--   vim.g.clipboard = {
+--     name = 'WslClipboard',
+--     copy = {
+--       ['+'] = 'win32yank.exe -i --crlf',
+--       ['*'] = 'win32yank.exe -i --crlf',
+--     },
+--     cache_enabled = 0,
+--   }
+-- end
