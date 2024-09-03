@@ -34,12 +34,21 @@ return {
   { -- comment
     'tpope/vim-commentary'
   },
-  { -- copilot
-    'github/copilot.vim',
-  },
+  -- { -- copilot
+  --   'github/copilot.vim',
+  -- },
   { -- auto pairs
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     config = true
+  },
+  {
+    'neovim/nvim-lspconfig'
+  },
+  {
+    'williamboman/mason.nvim'
+  },
+  {
+    'williamboman/mason-lspconfig.nvim'
   },
 }
