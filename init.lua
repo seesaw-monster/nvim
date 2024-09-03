@@ -18,8 +18,14 @@ plugins = require('plugins')
 
 require('lazy').setup(plugins)
 
+-- plugin setting ########################################################################
+require("lsp")
+
 -- others ################################################################################
 require("options")
 require("autocmd")
 require("keymaps")
 require("colorscheme")
+
+-- test ##################################################################################
+-- require("test")
