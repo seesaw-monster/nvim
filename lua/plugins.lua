@@ -70,4 +70,12 @@ return {
   {
     'saadparwaiz1/cmp_luasnip'
   },
+  -- filer ###########################
+  {
+    'lambdalisue/vim-fern'
+  },
+  {
+    'lambdalisue/vim-fern-hijack'
+  },
+  -- #################################
 }
