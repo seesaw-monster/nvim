@@ -1,5 +1,6 @@
 return {
-  { -- colorscheme
+  -- colorscheme #####################
+  {
     'folke/tokyonight.nvim',
     config = function()
       vim.cmd[[colorscheme tokyonight-moon]]
@@ -34,7 +35,8 @@ return {
   { -- comment
     'tpope/vim-commentary'
   },
-  -- { -- copilot
+  -- copilot #########################
+  -- {
   --   'github/copilot.vim',
   -- },
   { -- auto pairs
@@ -42,6 +44,7 @@ return {
     event = 'InsertEnter',
     config = true
   },
+  -- LSP #############################
   {
     'neovim/nvim-lspconfig'
   },
@@ -50,5 +53,21 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim'
+  },
+  -- cmp #############################
+  {
+    'hrsh7th/nvim-cmp'
+  },
+  {
+    'hrsh7th/cmp-nvim-lsp'
+  },
+  {
+    'hrsh7th/cmp-buffer'
+  },
+  {
+    'L3MON4D3/LuaSnip'
+  },
+  {
+    'saadparwaiz1/cmp_luasnip'
   },
 }
