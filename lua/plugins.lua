@@ -73,9 +73,6 @@ return {
   -- filer ###########################
   {
     'lambdalisue/vim-fern',
-    keys = {
-      { '<C-n>', ':Fern . -reveal=% -drawer -toggle -width=30<CR>', desc = 'toggle fern', silent = true}
-    },
   },
   {
     'lambdalisue/vim-fern-hijack'
