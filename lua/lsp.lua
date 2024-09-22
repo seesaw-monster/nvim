@@ -32,9 +32,9 @@ require("mason-lspconfig").setup_handlers {
 }
 
 -- 行中のエラーの非表示
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
-)
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
+-- )
 
 -- cmp の設定
 capabilities = require("cmp_nvim_lsp").default_capabilities()
