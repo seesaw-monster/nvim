@@ -73,7 +73,11 @@ vim.api.nvim_create_user_command('T', function(opts)
   vim.cmd('split')
   vim.cmd('wincmd j')
   vim.cmd('resize 20')
-  vim.cmd('terminal ' .. opts.args)
+  if opts.args == '' and vim.fn.has('win64') == 1 then
+    vim.cmd('terminal "C:\\Program Files\\PowerShell\\7\\pwsh.exe"')
+  else
+    vim.cmd('terminal ' .. opts.args)
+  end
 end, { nargs = '*' })
 -- auto insert mode
 vim.api.nvim_create_autocmd('TermOpen', {
