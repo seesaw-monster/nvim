@@ -21,6 +21,7 @@ require('lazy').setup(plugins)
 -- plugin setting ########################################################################
 require("lsp")
 require("filer")
+require("copilot")
 
 -- others ################################################################################
 require("options")

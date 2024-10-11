@@ -36,9 +36,24 @@ return {
     'tpope/vim-commentary'
   },
   -- copilot #########################
-  -- {
-  --   'github/copilot.vim',
-  -- },
+  {
+    'github/copilot.vim',
+  },
+  {
+    'nvim-lua/plenary.nvim'
+  },
+  { -- copilot chat
+    'CopilotC-Nvim/CopilotChat.nvim',
+    branch = "canary",
+    dependencies = {
+      { 'github/copilot.vim' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+    build = 'make tiktoken',
+    opts = {
+      debug = true,
+    },
+  },
   { -- auto pairs ####################
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
