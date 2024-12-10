@@ -57,7 +57,7 @@ vim.o.hidden = true
 
 -- device ################################################################################
 -- mouse
-vim.opt.mouse = ''
+-- vim.opt.mouse = ''
 vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', { noremap = true, silent = true })
 -- undo
