@@ -92,4 +92,23 @@ return {
   {
     'lambdalisue/vim-fern-hijack'
   },
+  -- DAP #############################
+  {
+    'mfussenegger/nvim-dap'
+  },
+  {
+    'nvim-neotest/nvim-nio'
+  },
+  {
+    'rcarriga/nvim-dap-ui',
+    dependencies = {'nvim-dap', 'nvim-nio'}
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+  },
+  {
+    'mfussenegger/nvim-dap-python',
+    dependencies = {'nvim-dap'}
+  },
+  -- #################################
 }
