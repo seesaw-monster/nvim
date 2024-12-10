@@ -22,6 +22,7 @@ require('lazy').setup(plugins)
 require("lsp")
 require("filer")
 require("copilot")
+require("debugger")
 
 -- others ################################################################################
 require("options")
