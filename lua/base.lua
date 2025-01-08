@@ -40,6 +40,7 @@ vim.o.whichwrap = 'b,s,h,l,<,>,[,]'
 -- escape sequence
 -- vim.o.t_TI = ""
 -- vim.o.t_TE = ""
+vim.o.splitright = true
 
 -- search ################################################################################
 -- vim.o.inserch = true
@@ -57,6 +58,7 @@ vim.o.hidden = true
 
 -- device ################################################################################
 -- mouse
+-- vim.o.mouse = ''
 -- vim.opt.mouse = ''
 vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', { noremap = true, silent = true })
