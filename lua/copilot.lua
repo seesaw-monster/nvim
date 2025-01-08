@@ -4,16 +4,23 @@ vim.g.copilot_filetypes = {
 }
 
 -- keymap
+function CopilotChatBuffer()
+  local input = vim.fn.input("Quick Chat: ")
+  if input ~= "" then
+    require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+  end
+end
+vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>lua CopilotChatBuffer()<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-q>", "<cmd>CopilotChat<cr>", { noremap = true, silent = true })
 
 -- setting
 require('CopilotChat').setup({
   auto_insert_mode = true,
-  mappings = {
-    submit_prompt = {
-      insert = '<CR>',
-    },
-  },
+  -- mappings = {
+  --   submit_prompt = {
+      -- insert = '<S-CR>',
+    -- },
+  -- },
   prompts = {
         Explain = {
             prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
