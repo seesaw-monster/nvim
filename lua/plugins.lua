@@ -110,5 +110,9 @@ return {
     'mfussenegger/nvim-dap-python',
     dependencies = {'nvim-dap'}
   },
+  -- Treesitter Context ##############
+  {
+    'nvim-treesitter/nvim-treesitter-context'
+  },
   -- #################################
 }
