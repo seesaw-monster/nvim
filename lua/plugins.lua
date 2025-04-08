@@ -114,5 +114,9 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-context'
   },
+  -- Accelerated jk ##################
+  {
+    'rainbowhxch/accelerated-jk.nvim'
+  },
   -- #################################
 }
