@@ -64,10 +64,12 @@ return {
     'neovim/nvim-lspconfig'
   },
   {
-    'williamboman/mason.nvim'
+    'williamboman/mason.nvim',
+    version = "1.11.0"
   },
   {
-    'williamboman/mason-lspconfig.nvim'
+    'williamboman/mason-lspconfig.nvim',
+    version = "1.32.0"
   },
   -- cmp #############################
   {
