@@ -25,7 +25,6 @@ require("copilot")
 require("debugger")
 
 -- others ################################################################################
-require("options")
 require("autocmd")
 require("keymaps")
 require("colorscheme")
