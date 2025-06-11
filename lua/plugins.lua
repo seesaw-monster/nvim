@@ -44,7 +44,7 @@ return {
   },
   { -- copilot chat
     'CopilotC-Nvim/CopilotChat.nvim',
-    branch = "canary",
+    branch = "main",
     dependencies = {
       { 'github/copilot.vim' },
       { 'nvim-lua/plenary.nvim' },
@@ -64,10 +64,12 @@ return {
     'neovim/nvim-lspconfig'
   },
   {
-    'williamboman/mason.nvim'
+    'williamboman/mason.nvim',
+    version = "1.11.0"
   },
   {
-    'williamboman/mason-lspconfig.nvim'
+    'williamboman/mason-lspconfig.nvim',
+    version = "1.32.0"
   },
   -- cmp #############################
   {
@@ -109,6 +111,14 @@ return {
   {
     'mfussenegger/nvim-dap-python',
     dependencies = {'nvim-dap'}
+  },
+  -- Treesitter Context ##############
+  {
+    'nvim-treesitter/nvim-treesitter-context'
+  },
+  -- Accelerated jk ##################
+  {
+    'rainbowhxch/accelerated-jk.nvim'
   },
   -- #################################
 }

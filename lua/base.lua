@@ -22,8 +22,6 @@ vim.o.ambiwidth = 'double'
 vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
--- tab -> space
-vim.o.expandtab = true
 -- indent
 vim.o.autoindent = true
 vim.o.smartindent = true
