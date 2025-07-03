@@ -15,12 +15,10 @@ vim.api.nvim_set_keymap("n", "<C-q>", "<cmd>CopilotChat<cr>", { noremap = true, 
 
 -- setting
 require('CopilotChat').setup({
-  auto_insert_mode = true,
-  -- mappings = {
-  --   submit_prompt = {
-      -- insert = '<S-CR>',
-    -- },
-  -- },
+  auto_insert_mode = false,
+  mappings = {
+    accept_diff = false,
+  },
   prompts = {
         Explain = {
             prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
